@@ -1,0 +1,19 @@
+# Cache
+**/__pycache__
+
+# Logs
+logs
+*.log
+
+# OS
+.DS_Store
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Datafiles
+**.txt
