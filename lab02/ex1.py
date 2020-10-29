@@ -5,11 +5,11 @@ from absl.flags import FLAGS
 import matplotlib.pyplot as plt
 import numpy as np
 from chart import Chart
-from zad1.fileLoader import wczytaj_baze_probek_z_tekstem
+from lab01.fileLoader import wczytaj_baze_probek_z_tekstem
 
 def main(_argv):
     # Uśmiech
-    usmiech = Chart(1)
+    usmiech = Chart()
     x = np.linspace(-2, 2, 8)
     y = (x+2)*(x-2)
     x = np.concatenate((x, np.flip(x, 0)))

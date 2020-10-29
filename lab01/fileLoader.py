@@ -21,7 +21,8 @@ def load_file(filename):
       line = line[:-1]
 
     # Linia może być pusta
-    if len(line) == 0:
+    parsedLine = split_line(line)
+    if len(parsedLine) == 0:
       continue
 
     wynik.append(split_line(line))

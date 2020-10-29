@@ -5,7 +5,7 @@ from absl.flags import FLAGS
 import matplotlib.pyplot as plt
 import numpy as np
 from chart import Chart
-from zad1.fileLoader import wczytaj_baze_probek_z_tekstem
+from lab01.fileLoader import wczytaj_baze_probek_z_tekstem
 
 def main(_argv):
     # Irys
@@ -18,7 +18,7 @@ def main(_argv):
         classes[classIdx].append(probka[:-1])
     classes = np.float32(np.array(classes))
 
-    irys = Chart(2)
+    irys = Chart()
     ax1 = plt.subplot(221)
     ax1.set_title('atrybut 3 / 4')
     irys.wykres_punkty_rysuj(classes[0,:,2], classes[0,:,3], 'klasa 1')
