@@ -22,7 +22,7 @@ def Kmeans(data, groupsCount, iterations=100, progress=None):
       # Assign sample
       assignments[s] = closestGroupIdx
 
-      # Recalculate closes group center
+      # Recalculate closest group center
       xValues = []
       yValues = []
       for i in range(len(assignments)):

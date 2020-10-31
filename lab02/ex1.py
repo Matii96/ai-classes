@@ -9,7 +9,7 @@ from lab01.fileLoader import wczytaj_baze_probek_z_tekstem
 
 def main(_argv):
     # Uśmiech
-    usmiech = Chart()
+    usmiech = Chart(None, True)
     x = np.linspace(-2, 2, 8)
     y = (x+2)*(x-2)
     x = np.concatenate((x, np.flip(x, 0)))

@@ -1,7 +1,7 @@
 def split_line(line):
   separatory = [' ', '\t', ',', '/']
   for sep in separatory:
-    # Dzielenie wg separatorów oraz usunięcie pustych znaków
+    # Split by separators and remove white spaces
     line = list(filter(None, line.split(sep)))
     if len(line) == 1:
       line = line[0]
@@ -16,11 +16,11 @@ def load_file(filename):
   file = open(filename, 'r')
   lines = file.readlines()
   for line in lines:
-    # Usunięcie znaku nowej linii
+    # Remove new line sign
     if line[len(line)-1] == '\n':
       line = line[:-1]
 
-    # Linia może być pusta
+    # Line may be empty
     parsedLine = split_line(line)
     if len(parsedLine) == 0:
       continue
@@ -29,10 +29,10 @@ def load_file(filename):
   return wynik
 
 def wczytaj_baze_probek_z_tekstem(nazwa_pliku_z_wartosciami, nazwa_pliku_z_opisem_atr):
-  # Parsowanie pliku z próbkami
+  # Parse file with data
   probki = load_file(nazwa_pliku_z_wartosciami)
 
-  # Parsowanie pliku z informacjami o atrybutach
+  # Parse file with attributes
   nazwy_atr = []
   czy_atr_symb = []
   atrybuty = load_file(nazwa_pliku_z_opisem_atr)
