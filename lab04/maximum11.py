@@ -1,7 +1,8 @@
 from random import uniform
 import math
 
-def maximum11(function, dispersion, growthFactor, variation, iterations=100, progress=None):
+
+def Maximum11(function, dispersion, growthFactor, variation, iterations=100, progress=None):
   x = uniform(variation[0], variation[1])
   y = eval(function)
   xBest = x
@@ -16,7 +17,7 @@ def maximum11(function, dispersion, growthFactor, variation, iterations=100, pro
       dispersion *= growthFactor
     else:
       dispersion /= growthFactor
-    
+
     if not progress is None:
       progress.append({'x': xBest, 'dispersion': dispersion})
 
