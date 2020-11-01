@@ -1,0 +1,29 @@
+<Grid>
+  GridLayout:
+    cols: 2
+    spacing: 10
+    size: root.width - 100, root.height - 100
+    pos: 50, 50
+
+    GridLayout:
+      cols: 4
+      spacing: 2, 2
+    
+    Label:
+      text: root.detection
+      color: 0, 0, 0, 1
+      font_size: '400sp'
+
+    GridLayout:
+      cols: 2
+      size_hint_y: None
+      height: self.parent.height * 0.111
+
+      Button:
+        text: 'Clear'
+        background_color: 1, .76, .03, 1
+        on_press: root.Clear()
+      Button:
+        text: 'Classify'
+        background_color: 0, .48, 1, 1
+        on_press: root.Classify()

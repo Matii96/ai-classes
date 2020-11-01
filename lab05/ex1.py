@@ -6,9 +6,9 @@ import math
 from pso import Pso
 
 flags.DEFINE_string('function', 'math.sin(x[0]*0.05)+math.sin(x[1]*0.05)+0.4*math.sin(x[0]*0.15)*math.sin(x[1]*0.15)', '')
-flags.DEFINE_integer('individuals_count', 4, '')
+flags.DEFINE_integer('individuals_count', 25, '')
 flags.DEFINE_float('inertion', 0.2, '')
-flags.DEFINE_float('rglob', 0.3, '')
+flags.DEFINE_float('rglob', 0.2, '')
 flags.DEFINE_float('rloc', 0.3, '')
 flags.DEFINE_integer('variation_min', 0, '')
 flags.DEFINE_integer('variation_max', 100, '')
@@ -25,6 +25,7 @@ def EvalFunction(X, Y):
 def main(_argv):
   maximum = Pso(FLAGS.function, FLAGS.individuals_count, FLAGS.inertion, FLAGS.rglob, FLAGS.rloc,
     (FLAGS.variation_min, FLAGS.variation_min), (FLAGS.variation_max, FLAGS.variation_max), FLAGS.iterations)
+  print('Maximum is: ({:.1f},{:.1f})'.format(maximum[0], maximum[1]))
 
   x = np.linspace(FLAGS.variation_min, FLAGS.variation_max, 100)
   y = np.linspace(FLAGS.variation_min, FLAGS.variation_max, 100)
@@ -36,7 +37,8 @@ def main(_argv):
 
   x = maximum
   z = eval(FLAGS.function)
-  ax.scatter3D(maximum[0], maximum[1], z, marker='*', s=400, color='red', label='best result')
+  ax.scatter(maximum[0], maximum[1], z, marker='*', s=300, color='blue', label='Best result')
+  ax.plot((maximum[0], maximum[0]), (maximum[1], maximum[1]), (0, z*1.5), color='blue', linewidth=5, label='Best result coordinates')
 
   plt.legend(loc='upper right')
   plt.title('PSO maximum for ' + FLAGS.function)

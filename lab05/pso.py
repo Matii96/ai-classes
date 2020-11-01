@@ -4,17 +4,15 @@ import numpy as np
 import math
 
 def Pso(function, individualsCount, rinertion, rglob, rloc, xmin, xmax, iterations=30):
-  individuals = []
-  for i in range(individualsCount):
-    individuals.append([uniform(xmin[j], xmax[j]) for j in range(len(xmin))])
+  individuals = np.array([[uniform(xmin[i], xmax[i]) for i in range(len(xmin))] for _ in range(individualsCount)])
 
   # Set local optimum and velocity for each individual
-  optima = [individual[:] for individual in individuals]
+  optima = np.array(individuals)
   velocity = np.zeros((individualsCount, len(xmin)))
 
   bestIndividual = None
   bestIndividualValue = -math.inf
-  for i in range(iterations):
+  for _ in range(iterations):
     # Find best individual
     for j in range(individualsCount):
       x = individuals[j]
@@ -23,8 +21,8 @@ def Pso(function, individualsCount, rinertion, rglob, rloc, xmin, xmax, iteratio
         bestIndividualValue = value
         bestIndividual = x
 
-    # Adjust individuals ratings if needed
     for j in range(individualsCount):
+      # Adjust individuals ratings if needed
       x = individuals[j]
       individualRating = eval(function)
       x = optima[j]
@@ -32,13 +30,12 @@ def Pso(function, individualsCount, rinertion, rglob, rloc, xmin, xmax, iteratio
       if individualOptimumRating < individualRating:
         optima[j] = individuals[j]
 
-    # Recalculate velocity
-    for j in range(individualsCount):
+      # Recalculate velocity
       individual = individuals[j]
       rndGlob = uniform(float_info.min, 1-float_info.min)
       rndLoc = uniform(float_info.min, 1-float_info.min)
       for i in range(len(individual)):
-        velocity[j,i] = velocity[j,i] * rinertion + (bestIndividual[i] - individual[i]) * rglob * rndGlob + (optima[j][i] - individual[i]) * rloc * rndLoc
-        individuals[j][i] = individual[i] + velocity[j, i]
+        velocity[j,i] = velocity[j,i] * rinertion + (bestIndividual[i] - individual[i]) * rglob * rndGlob + (optima[j,i] - individual[i]) * rloc * rndLoc
+        individuals[j,i] = individual[i] + velocity[j,i]
 
   return bestIndividual

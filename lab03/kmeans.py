@@ -5,7 +5,7 @@ def Kmeans(data, groupsCount, iterations=100, progress=None):
   assignments = [-1 for _ in range(len(data))]
   groupsCenters = random.sample(data, groupsCount)
 
-  for iteration in range(iterations):
+  for _ in range(iterations):
     for s in range(len(data)):
       sample = data[s]
 

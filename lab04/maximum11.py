@@ -8,7 +8,7 @@ def Maximum11(function, dispersion, growthFactor, variation, iterations=100, pro
   xBest = x
   yBest = y
 
-  for i in range(iterations):
+  for _ in range(iterations):
     x = xBest + uniform(-dispersion, dispersion)
     x = min(max(x, variation[0]), variation[1])
     y = eval(function)
