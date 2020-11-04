@@ -4,7 +4,10 @@ import numpy as np
 import math
 
 def Pso(function, individualsCount, rinertion, rglob, rloc, xmin, xmax, iterations=30):
-  individuals = np.array([[uniform(xmin[i], xmax[i]) for i in range(len(xmin))] for _ in range(individualsCount)])
+  individuals = np.array([
+    [uniform(xmin[i], xmax[i]) for i in range(len(xmin))]
+    for _ in range(individualsCount)
+  ])
 
   # Set local optimum and velocity for each individual
   optima = np.array(individuals)

@@ -1,6 +1,6 @@
 def split_line(line):
-  separatory = [' ', '\t', ',', '/']
-  for sep in separatory:
+  separators = [' ', '\t', ',', '/']
+  for sep in separators:
     # Split by separators and remove white spaces
     line = list(filter(None, line.split(sep)))
     if len(line) == 1:
@@ -12,7 +12,7 @@ def split_line(line):
   return line
 
 def load_file(filename):
-  wynik = []
+  result = []
   file = open(filename, 'r')
   lines = file.readlines()
   for line in lines:
@@ -25,19 +25,19 @@ def load_file(filename):
     if len(parsedLine) == 0:
       continue
 
-    wynik.append(split_line(line))
-  return wynik
+    result.append(split_line(line))
+  return result
 
 def wczytaj_baze_probek_z_tekstem(nazwa_pliku_z_wartosciami, nazwa_pliku_z_opisem_atr):
   # Parse file with data
-  probki = load_file(nazwa_pliku_z_wartosciami)
+  samples = load_file(nazwa_pliku_z_wartosciami)
 
   # Parse file with attributes
-  nazwy_atr = []
-  czy_atr_symb = []
-  atrybuty = load_file(nazwa_pliku_z_opisem_atr)
-  for atrybut in atrybuty:
-    nazwy_atr.append(atrybut[0])
-    czy_atr_symb.append(atrybut[1] == 's')
+  names = []
+  isSymbolic = []
+  attributes = load_file(nazwa_pliku_z_opisem_atr)
+  for attribute in attributes:
+    names.append(attribute[0])
+    isSymbolic.append(attribute[1] == 's')
 
-  return (probki, nazwy_atr, czy_atr_symb)
+  return (samples, names, isSymbolic)

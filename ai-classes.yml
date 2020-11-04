@@ -1,0 +1,11 @@
+name: ai-classes
+
+channels:
+  - conda-forge
+dependencies:
+  - python==3.8
+  - pip
+  - matplotlib
+  - numpy
+  - kivy
+  - absl-py

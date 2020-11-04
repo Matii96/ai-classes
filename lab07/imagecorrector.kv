@@ -1,21 +1,16 @@
 <Grid>
   GridLayout:
-    cols: 2
+    cols: 1
     spacing: 10
     size: root.width - 100, root.height - 100
     pos: 50, 50
 
     GridLayout:
-      cols: 4
+      cols: 5
       spacing: 2, 2
-    
-    Label:
-      text: root.detection
-      color: 0, 0, 0, 1
-      font_size: '400sp'
 
     GridLayout:
-      cols: 2
+      cols: 3
       size_hint_y: None
       height: self.parent.height * 0.111
 
@@ -24,6 +19,10 @@
         background_color: 1, .76, .03, 1
         on_press: root.Clear()
       Button:
-        text: 'Classify'
+        text: 'Correct'
         background_color: .17, .65, .27, 1
-        on_press: root.Classify()
+        on_press: root.Correct()
+      Button:
+        text: 'Reverse'
+        background_color: 0, .48, 1, 1
+        on_press: root.Reverse()

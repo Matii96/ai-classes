@@ -23,7 +23,7 @@ def Animate(frameIdx):
 
   for i in range(len(groups)):
     group = np.array(groups[i])
-    chart.wykres_punkty_rysuj(group[:,0], group[:,1], 'group {}'.format(i))
+    chart.wykres_punkty_rysuj(group[:,0], group[:,1], 'group {}'.format(i+1))
 
   centersNp = np.array(centers)
   chart.wykres_punkty_rysuj(centersNp[:,0], centersNp[:,1], 'centers')

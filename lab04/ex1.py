@@ -7,8 +7,8 @@ import math
 from maximum11 import Maximum11
 
 flags.DEFINE_string('function', 'math.sin(x/10)*math.sin(x/200)', '')
-flags.DEFINE_integer('dispersion', 10, '')
-flags.DEFINE_float('growth_factor', 1.5, '')
+flags.DEFINE_integer('dispersion', 80, '')
+flags.DEFINE_float('growth_factor', 1.3, '')
 flags.DEFINE_integer('variation_min', 0, '')
 flags.DEFINE_integer('variation_max', 100, '')
 flags.DEFINE_integer('iterations', 100, '')
