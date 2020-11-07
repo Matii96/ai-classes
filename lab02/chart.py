@@ -23,6 +23,7 @@ class Chart:
 
     def clear(self):
         plt.clf()
+        self.seriesIdx = 0
 
     def show(self):
         plt.show()
