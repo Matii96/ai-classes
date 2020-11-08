@@ -14,13 +14,13 @@ def Pso(function, individualsCount, rinertion, rglob, rloc, xmin, xmax, iteratio
   velocity = np.zeros((individualsCount, len(xmin)))
 
   bestIndividual = None
-  bestIndividualValue = -math.inf
+  bestIndividualValue = None
   for _ in range(iterations):
     # Find best individual
     for j in range(individualsCount):
       x = individuals[j]
       value = eval(function)
-      if value >= bestIndividualValue:
+      if bestIndividual is None or value >= bestIndividualValue:
         bestIndividualValue = value
         bestIndividual = x
 

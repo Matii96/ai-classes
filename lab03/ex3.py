@@ -12,7 +12,7 @@ from fuzzy_kmeans import fuzzy_kmeans
 
 flags.DEFINE_integer('groups', 3, '')
 flags.DEFINE_integer('iterations', 100, '')
-flags.DEFINE_float('fcm', 1.4, '')
+flags.DEFINE_float('fcm', 1.5, '')
 
 chart = Chart()
 progress = []
