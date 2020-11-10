@@ -42,8 +42,7 @@ def u_lambda(function, xmin, xmax, mu=4, lambda_param=10, tournament_size=2, mut
 
     # Merge generations
     individuals = np.concatenate((individuals, np.array(descendants)), axis=0)
-    order = np.argsort(individuals[:,0])
-    individuals = individuals[order]
+    individuals = individuals[np.argsort(individuals[:,0])]
     np.delete(individuals, list(range(lambda_param)))
 
   # Return best individual without its rate
