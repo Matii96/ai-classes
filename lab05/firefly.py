@@ -46,7 +46,7 @@ def firefly(function, xmin, xmax, N=4, beta0=0.3, gamma0=0.1, mu=0.05, iteration
 
     # Apply mutation
     for t in range(attributes):
-      individuals[a,t] = uniform(-mu, mu)
+      individuals[a,t] = uniform(-attributes_variation[t], attributes_variation[t])
 
     # Update rate
     x = individuals[a]
