@@ -26,7 +26,7 @@ def firefly(function, xmin, xmax, N=4, beta0=0.3, gamma0=0.1, mu=0.05, iteration
   individuals_rate = np.empty(N)
   for i in range(len(individuals)):
     x = individuals[i]
-    value = eval(function)
+    individuals_rate[i] = eval(function)
   
   for _ in range(iterations):
     a_order = list(range(len(individuals)))
